@@ -22,7 +22,7 @@ export const App = () => {
     const fetchImg = async () => {
       try {
         const imgGal = await requestSplash(page, searchQuery);
-        return setGallery(gallery => [...gallery, ...imgGal.results]);
+        return setGallery(gallery => [...gallery, ...imgGal]);
       } catch (error) {
         return error.message;
       }

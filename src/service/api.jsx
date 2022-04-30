@@ -8,7 +8,7 @@ const requestSplash = (query, page) => {
     const responce = axios.get(
       `/search/photos?query=london&page=1&orientation=squarish&per_page=12&client_id=${API_KEY}`
     );
-    return responce;
+    return responce.dta;
   } catch (error) {
     return error.message;
   }
