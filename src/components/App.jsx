@@ -1,42 +1,36 @@
-import { useState, useEffect } from 'react';
-import requestSplash from 'service/api';
-import Form from './SearchForm/SearchForm';
+import { Routes, Route } from 'react-router-dom';
 import Container from './Container';
-import GalleryList from './GalleryList';
+import Navigation from './Navigation';
+import HomePage from './TodoEditor/HomePage';
+import Clock from './TodoEditor/Clock';
+import Counter from './TodoEditor/Counter';
+import Form from './TodoEditor/Form';
+import ColorPeacker from './TodoEditor/ColorPeacker';
+import Gallery from './TodoEditor/GadgetNews/Gallery';
+import Context from './TodoEditor/Context/UserMenu';
+const colorPeackerOptions = [
+  { label: 'red', color: '#F44336' },
+  { label: 'green', color: '#4CAF50' },
+  { label: 'blue', color: '#2196F3' },
+  { label: 'grey', color: '#607D8B' },
+];
 
 export const App = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [gallery, setGallery] = useState([]);
-  const [page, setPage] = useState(1);
-
-  const onFormSubmit = query => {
-    setSearchQuery(query);
-    setGallery([]);
-    setPage(1);
-  };
-
-  useEffect(() => {
-    if (!searchQuery) {
-      return;
-    }
-    const fetchImg = async () => {
-      try {
-        const imgGal = await requestSplash(page, searchQuery);
-        return setGallery(gallery => [...gallery, ...imgGal]);
-      } catch (error) {
-        return error.message;
-      }
-    };
-    fetchImg();
-  }, [gallery, page, searchQuery]);
-
-  const api = requestSplash();
-  console.log(api);
-
   return (
     <Container>
-      <Form onsubmit={onFormSubmit} />
-      <GalleryList img={gallery} />
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="clock" element={<Clock />} />
+        <Route path="counter" element={<Counter />} />
+        <Route path="form" element={<Form />} />
+        <Route
+          path="colorpeacker"
+          element={<ColorPeacker options={colorPeackerOptions} />}
+        />
+        <Route path="news" element={<Gallery />} />
+        <Route path="context" element={<Context />} />
+      </Routes>
     </Container>
   );
 };

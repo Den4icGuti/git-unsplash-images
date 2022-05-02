@@ -1,0 +1,14 @@
+.counterBox{
+  width: 200px;
+  height: 150px;
+  border: solid 1px cornflowerblue;
+  padding: 10px; 
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.btnBox{
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+}

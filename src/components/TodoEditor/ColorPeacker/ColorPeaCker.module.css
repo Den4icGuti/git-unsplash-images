@@ -1,0 +1,19 @@
+.colorPeacker{
+  width: 400px;
+  height: 200px;
+  border: solid 1px tomato;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding: 15px;
+}
+
+.titleColorPeacker{
+  font-size: 22px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.change{
+  font-size: 18px;
+}
+
