@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchArticles } from 'services/api';
+import { fetchImg } from 'services/api';
 import SearchForm from '../SearchForm';
 import styles from '../Gallery/Gallery.module.css';
 
@@ -14,16 +14,18 @@ const News = () => {
     setPage(prevPage => prevPage + 1);
   };
 
+  const api = fetchImg();
+  console.log(api);
   useEffect(() => {
-    setIsloading(true);
+    Load();
     try {
-      fetchArticles(query, page).then(responseGallery => {
+      fetchImg(query, page).then(responseGallery => {
         setGallery(prevGallery => [...prevGallery, ...responseGallery]);
       });
     } catch (error) {
       return error.message;
     } finally {
-      setIsloading(false);
+      Load();
       onHandleScroll();
     }
   }, [query, page]);
@@ -33,6 +35,10 @@ const News = () => {
       top: document.documentElement.scrollHeight,
       behavior: 'smooth',
     });
+  };
+
+  const Load = () => {
+    setIsloading(isLoading => !isLoading);
   };
 
   const onChangeQuery = query => {
@@ -49,8 +55,9 @@ const News = () => {
       <ul className={styles.listItem}>
         {gallery.map(art => (
           <li key={art.id} className={styles.item}>
-            <img src={art.urls.small} alt="" />
             <div className={styles.boxDescr}>
+              <img src={art.urls.small} alt="" />
+
               <p>Description: {art.description}</p>
               {!art.description && <p>No info</p>}
               <p>Likes: {art.likes}</p>
@@ -59,6 +66,7 @@ const News = () => {
         ))}
       </ul>
       {error && <div>The search has not given any results</div>}
+      {gallery === 0 && <>End collection....</>}
       {gallery.length > 0 && (
         <button
           className={styles.btnLoad}

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import authContext from './authContext';
+import authContext from '../authContext';
 
-class authProvider extends Component {
+class AuthProvider extends Component {
   state = {
     user: null,
     logIn: () => {
-      this.setState({ user: 'Mango' });
+      this.setState({ user: 'Vasya' });
     },
     logOut: () => {
       this.setState({ user: null });
@@ -20,4 +20,4 @@ class authProvider extends Component {
   }
 }
 
-export default authProvider;
+export default AuthProvider;

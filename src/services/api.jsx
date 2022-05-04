@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const fetchArticles = (query = '', page, per_page = 12) => {
+export const fetchImg = (query = '', page, per_page = 12) => {
   try {
     return axios
       .get(

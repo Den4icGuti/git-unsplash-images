@@ -7,7 +7,8 @@ import Counter from './TodoEditor/Counter';
 import Form from './TodoEditor/Form';
 import ColorPeacker from './TodoEditor/ColorPeacker';
 import Gallery from './TodoEditor/GadgetNews/Gallery';
-import Context from './TodoEditor/Context/UserMenu';
+import UserMenu from './TodoEditor/context/UserMenu';
+
 const colorPeackerOptions = [
   { label: 'red', color: '#F44336' },
   { label: 'green', color: '#4CAF50' },
@@ -28,8 +29,8 @@ export const App = () => {
           path="colorpeacker"
           element={<ColorPeacker options={colorPeackerOptions} />}
         />
-        <Route path="news" element={<Gallery />} />
-        <Route path="context" element={<Context />} />
+        <Route path="gallery" element={<Gallery />} />
+        <Route path="context" element={<UserMenu />} />
       </Routes>
     </Container>
   );

@@ -12,17 +12,18 @@
 }
 
 .boxDescr{
-  width: 230px;
+  width: 300px;
   height: auto;
-  padding: 10px;
-  background-color: rgb(170, 188, 204);
-  font-size: 15 px;
- 
+  padding: 20px;
+  background-color: aliceblue;
+box-shadow: 1px 4px 14px 12px rgba(16, 120, 201, 0.2);
+  font-size: 15px;
+ text-align: center;
 }
 
 img{
-  width: 250px;
-  height: 300px;
+  width: 300px;
+  height: 350px;
 }
 
 .btnLoad{

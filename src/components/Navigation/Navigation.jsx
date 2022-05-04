@@ -19,12 +19,13 @@ const Navigation = () => {
       <NavLink className={styles.navLink} to="colorpeacker">
         ColorPeacker
       </NavLink>
-      <NavLink className={styles.navLink} to="news">
+      <NavLink className={styles.navLink} to="gallery">
         Gallery
       </NavLink>
       <NavLink className={styles.navLink} to="context">
         Context
       </NavLink>
+
       <hr />
     </nav>
   );
