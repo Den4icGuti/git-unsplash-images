@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { lazy } from 'react';
+
 import Container from './Container';
 import Navigation from './Navigation';
 import HomePage from './TodoEditor/HomePage';
